@@ -1,5 +1,8 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { playWinSound } from "../lib/sound";
+
+const VIDEO_DURATION_S = 370; // 00:06:09.83
 
 const comments = [
   {
@@ -42,10 +45,26 @@ const comments = [
 
 export default function Validacao() {
   const [seconds, setSeconds] = useState(196);
+  const [ctaReady, setCtaReady] = useState(false);
+  const revealedRef = useRef(false);
+
   useEffect(() => {
     const id = setInterval(() => setSeconds((s) => (s > 0 ? s - 1 : 0)), 1000);
     return () => clearInterval(id);
   }, []);
+
+  function reveal() {
+    if (revealedRef.current) return;
+    revealedRef.current = true;
+    setCtaReady(true);
+    playWinSound();
+  }
+
+  useEffect(() => {
+    const fallback = setTimeout(reveal, (VIDEO_DURATION_S + 1) * 1000);
+    return () => clearTimeout(fallback);
+  }, []);
+
   const mm = String(Math.floor(seconds / 60)).padStart(2, "0");
   const ss = String(seconds % 60).padStart(2, "0");
 
@@ -59,7 +78,15 @@ export default function Validacao() {
 
       <div className="relative w-full">
         <div className="relative">
-          <video className="w-full aspect-video pointer-events-none" autoPlay playsInline preload="auto" disablePictureInPicture controlsList="nodownload nofullscreen noremoteplayback">
+          <video
+            className="w-full aspect-video pointer-events-none"
+            autoPlay
+            playsInline
+            preload="auto"
+            disablePictureInPicture
+            controlsList="nodownload nofullscreen noremoteplayback"
+            onEnded={reveal}
+          >
             <source src="/video-validacao.mp4" type="video/mp4" />
             Seu navegador não suporta vídeos.
           </video>
@@ -162,12 +189,19 @@ export default function Validacao() {
       </div>
 
       <div className="px-4 mt-6 mb-4">
-        <button
-          onClick={() => window.open("https://go.perfectpay.com.br/PPU38CQFNR0", "_blank")}
-          className="w-full bg-[#00C853] hover:bg-[#00b848] text-white font-bold text-lg py-4 rounded-xl transition-all cursor-pointer shadow-lg"
-        >
-          {`Liberar meu saque de R$ 467,38`}
-        </button>
+        {ctaReady ? (
+          <button
+            onClick={() => window.open("https://go.perfectpay.com.br/PPU38CQFNR0", "_blank")}
+            className="w-full bg-[#00C853] hover:bg-[#00b848] text-white font-bold text-lg py-4 rounded-xl transition-all cursor-pointer shadow-lg"
+          >
+            {`Liberar meu saque de R$ 467,38`}
+          </button>
+        ) : (
+          <div className="w-full flex items-center justify-center gap-2 text-[#999] text-sm py-4 border-2 border-dashed border-[#ddd] rounded-xl">
+            <div className="w-4 h-4 border-2 border-[#00C853]/40 border-t-[#00C853] rounded-full animate-spin" />
+            Assista o vídeo até o final para liberar
+          </div>
+        )}
         <div className="flex items-center justify-center gap-4 mt-3 mb-6 text-xs text-[#aaa]">
           <div className="flex items-center gap-1.5">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">

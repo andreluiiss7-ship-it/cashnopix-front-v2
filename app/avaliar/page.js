@@ -4,6 +4,7 @@ import Header from "../components/Header";
 import CodeEntry from "../components/CodeEntry";
 import RatingCard from "../components/RatingCard";
 import BalanceUpdatedModal from "../components/BalanceUpdatedModal";
+import { playWinSound } from "../lib/sound";
 
 const products = [
   {
@@ -103,6 +104,9 @@ export default function Avaliar() {
 }
 
 function FinalCard({ balance, onRealizarSaque }) {
+  useEffect(() => {
+    playWinSound();
+  }, []);
   return (
     <div className="flex flex-col items-center">
       <div className="bg-white rounded-2xl shadow-lg p-10 flex flex-col items-center gap-4 max-w-sm w-full">
