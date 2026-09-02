@@ -3,6 +3,8 @@ import { useEffect, useRef, useState } from "react";
 import { playWinSound } from "../lib/sound";
 
 const VIDEO_DURATION_S = 370; // 00:06:09.83
+const BUNNY_LIBRARY_ID = "742909";
+const BUNNY_VIDEO_ID = "23ebce6b-1d2d-4d18-87fa-cb806c1f7692";
 
 const comments = [
   {
@@ -77,20 +79,14 @@ export default function Validacao() {
       </div>
 
       <div className="relative w-full">
-        <div className="relative">
-          <video
-            className="w-full aspect-video pointer-events-none"
-            autoPlay
-            playsInline
-            preload="auto"
-            disablePictureInPicture
-            controlsList="nodownload nofullscreen noremoteplayback"
-            onEnded={reveal}
-          >
-            <source src="/video-validacao.mp4" type="video/mp4" />
-            Seu navegador não suporta vídeos.
-          </video>
-          <div className="absolute inset-0" />
+        <div className="relative aspect-video">
+          <iframe
+            src={`https://iframe.mediadelivery.net/embed/${BUNNY_LIBRARY_ID}/${BUNNY_VIDEO_ID}?autoplay=true&loop=false&muted=true&preload=true&responsive=true`}
+            loading="lazy"
+            className="absolute inset-0 w-full h-full"
+            allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;"
+            allowFullScreen
+          />
         </div>
         <div className="absolute bottom-3 left-3 flex items-end gap-2">
           <div className="relative w-20 h-20">

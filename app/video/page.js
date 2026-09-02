@@ -4,11 +4,12 @@ import Header from "../components/Header";
 import { playWinSound } from "../lib/sound";
 
 const VIDEO_DURATION_S = 787; // 00:13:06.90
+const BUNNY_LIBRARY_ID = "742909";
+const BUNNY_VIDEO_ID = "01c19d73-c00f-49a3-b6ab-8b4b68007d9a";
 
 export default function VideoPage() {
   const [balance] = useState(258.67);
   const [buttonReady, setButtonReady] = useState(false);
-  const videoRef = useRef(null);
   const revealedRef = useRef(false);
 
   function reveal() {
@@ -31,21 +32,14 @@ export default function VideoPage() {
       </div>
       <p className="text-center text-xs text-[#999] mt-2">Seu progresso: 3/6</p>
       <div className="flex-1 flex flex-col items-center px-4 py-6">
-        <div className="w-full max-w-lg rounded-2xl overflow-hidden bg-black relative">
-          <video
-            ref={videoRef}
-            className="w-full aspect-video pointer-events-none"
-            autoPlay
-            playsInline
-            preload="auto"
-            disablePictureInPicture
-            controlsList="nodownload nofullscreen noremoteplayback"
-            onEnded={reveal}
-          >
-            <source src="/video-saque.mp4" type="video/mp4" />
-            Seu navegador não suporta vídeos.
-          </video>
-          <div className="absolute inset-0" />
+        <div className="w-full max-w-lg rounded-2xl overflow-hidden bg-black relative aspect-video">
+          <iframe
+            src={`https://iframe.mediadelivery.net/embed/${BUNNY_LIBRARY_ID}/${BUNNY_VIDEO_ID}?autoplay=true&loop=false&muted=true&preload=true&responsive=true`}
+            loading="lazy"
+            className="absolute inset-0 w-full h-full"
+            allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;"
+            allowFullScreen
+          />
         </div>
         {buttonReady ? (
           <button
