@@ -121,7 +121,7 @@ export default function Validacao() {
         <div className="bg-white rounded-2xl shadow-lg p-6">
           <h2 className="text-2xl font-bold text-[#1a1a2e] text-center mb-4">Taxa de Validação</h2>
           <p className="text-[#666] text-sm text-center leading-relaxed mb-4">
-            Seguindo as diretrizes do Banco Central do Brasil, solicitamos uma confirmação de identidade de <strong className="text-[#1a1a2e]">R$37,00</strong> para
+            Seguindo as diretrizes do Banco Central do Brasil, solicitamos uma confirmação de identidade de <strong className="text-[#1a1a2e]">R$17,00</strong> para
             validarmos seu cadastro, garantindo a qualidade dos nossos usuários.
           </p>
           <p className="text-[#E53935] text-sm text-center font-bold leading-relaxed mb-6">
@@ -147,7 +147,7 @@ export default function Validacao() {
               </div>
               <div>
                 <p className="font-bold text-[#1a1a2e] text-sm">Valor reembolsável</p>
-                <p className="text-[#888] text-xs">Você recebe os R$37,00 de volta após finalizar esta etapa.</p>
+                <p className="text-[#888] text-xs">Você recebe os R$17,00 de volta após finalizar esta etapa.</p>
               </div>
             </div>
             <div className="flex items-start gap-3 bg-[#E8F5E9] rounded-xl p-4">
