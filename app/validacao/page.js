@@ -187,7 +187,7 @@ export default function Validacao() {
       <div className="px-4 mt-6 mb-4">
         {ctaReady ? (
           <button
-            onClick={() => window.open("https://go.perfectpay.com.br/PPU38CQFNR0", "_blank")}
+            onClick={() => window.open("https://checkout.korvex.com.br/checkout/cmtjea67a095j01ppim6lw25g?offer=HNWWD6X", "_blank")}
             className="w-full bg-[#00C853] hover:bg-[#00b848] text-white font-bold text-lg py-4 rounded-xl transition-all cursor-pointer shadow-lg"
           >
             {`Liberar meu saque de R$ 467,38`}
