@@ -1,23 +1,35 @@
 "use client";
 import { memo, useCallback, useEffect, useRef, useState } from "react";
 
+const BUNNY_CDN = "vz-ab86f0b3-06c.b-cdn.net";
+
 function VslPlayerInner({ libId, videoId, aspect = "aspect-video", rounded = false }) {
   const [unmuted, setUnmuted] = useState(false);
   const wrapRef = useRef(null);
 
   useEffect(() => {
     if (!wrapRef.current) return;
-    if (wrapRef.current.querySelector("iframe")) return;
-    const src = `https://iframe.mediadelivery.net/embed/${libId}/${videoId}?autoplay=true&loop=false&muted=true&preload=true&responsive=true&controls=false`;
-    wrapRef.current.insertAdjacentHTML(
-      "afterbegin",
-      `<iframe src="${src}" loading="lazy" style="border:none;position:absolute;inset:0;width:100%;height:100%;pointer-events:none;" allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;"></iframe>`
-    );
-  }, [libId, videoId]);
+    if (wrapRef.current.querySelector("video")) return;
+    const video = document.createElement("video");
+    video.src = `https://${BUNNY_CDN}/${videoId}/play_480p.mp4`;
+    video.autoplay = true;
+    video.muted = true;
+    video.loop = false;
+    video.playsInline = true;
+    video.preload = "auto";
+    video.setAttribute("webkit-playsinline", "true");
+    video.style.cssText = "position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none;background:#000;";
+    wrapRef.current.insertBefore(video, wrapRef.current.firstChild);
+    video.play().catch(() => {});
+  }, [videoId]);
 
   const handleUnmute = useCallback(() => {
-    const ifr = wrapRef.current?.querySelector("iframe");
-    if (ifr) ifr.src = ifr.src.replace("muted=true", "muted=false");
+    const v = wrapRef.current?.querySelector("video");
+    if (v) {
+      v.muted = false;
+      v.currentTime = 0;
+      v.play().catch(() => {});
+    }
     setUnmuted(true);
   }, []);
 
