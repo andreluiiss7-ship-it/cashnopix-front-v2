@@ -36,12 +36,12 @@ export default function VideoPage() {
         <div className="w-full max-w-lg rounded-2xl overflow-hidden bg-black relative aspect-video">
           <iframe
             key={unmuted ? "unmuted" : "muted"}
-            src={`https://iframe.mediadelivery.net/embed/${BUNNY_LIBRARY_ID}/${BUNNY_VIDEO_ID}?autoplay=true&loop=false&muted=${unmuted ? "false" : "true"}&preload=true&responsive=true`}
+            src={`https://iframe.mediadelivery.net/embed/${BUNNY_LIBRARY_ID}/${BUNNY_VIDEO_ID}?autoplay=true&loop=false&muted=${unmuted ? "false" : "true"}&preload=true&responsive=true&controls=false`}
             loading="lazy"
-            className="absolute inset-0 w-full h-full"
+            className="absolute inset-0 w-full h-full pointer-events-none"
             allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;"
-            allowFullScreen
           />
+          <div className="absolute inset-0 z-[5]" style={{ pointerEvents: unmuted ? "auto" : "none" }} />
           {!unmuted && (
             <button
               onClick={() => setUnmuted(true)}
