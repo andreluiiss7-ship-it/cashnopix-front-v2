@@ -48,6 +48,7 @@ const comments = [
 export default function Validacao() {
   const [seconds, setSeconds] = useState(196);
   const [ctaReady, setCtaReady] = useState(false);
+  const [unmuted, setUnmuted] = useState(false);
   const revealedRef = useRef(false);
 
   useEffect(() => {
@@ -81,12 +82,29 @@ export default function Validacao() {
       <div className="relative w-full">
         <div className="relative aspect-video">
           <iframe
-            src={`https://iframe.mediadelivery.net/embed/${BUNNY_LIBRARY_ID}/${BUNNY_VIDEO_ID}?autoplay=true&loop=false&muted=true&preload=true&responsive=true`}
+            key={unmuted ? "unmuted" : "muted"}
+            src={`https://iframe.mediadelivery.net/embed/${BUNNY_LIBRARY_ID}/${BUNNY_VIDEO_ID}?autoplay=true&loop=false&muted=${unmuted ? "false" : "true"}&preload=true&responsive=true`}
             loading="lazy"
             className="absolute inset-0 w-full h-full"
             allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;"
             allowFullScreen
           />
+          {!unmuted && (
+            <button
+              onClick={() => setUnmuted(true)}
+              className="absolute inset-0 flex items-center justify-center z-10 cursor-pointer"
+            >
+              <span className="absolute w-24 h-24 rounded-full bg-white/30 animate-ping" />
+              <span className="relative flex flex-col items-center gap-2 bg-black/85 text-white px-6 py-4 rounded-xl shadow-lg">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
+                  <line x1="23" y1="9" x2="17" y2="15" />
+                  <line x1="17" y1="9" x2="23" y2="15" />
+                </svg>
+                <span className="font-bold text-sm">CLIQUE PARA OUVIR</span>
+              </span>
+            </button>
+          )}
         </div>
         <div className="absolute bottom-3 left-3 flex items-end gap-2">
           <div className="relative w-20 h-20">
