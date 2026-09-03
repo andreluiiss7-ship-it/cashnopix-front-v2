@@ -121,7 +121,7 @@ export default function Validacao() {
         <div className="bg-white rounded-2xl shadow-lg p-6">
           <h2 className="text-2xl font-bold text-[#1a1a2e] text-center mb-4">Taxa de Validação</h2>
           <p className="text-[#666] text-sm text-center leading-relaxed mb-4">
-            Seguindo as diretrizes do Banco Central do Brasil, solicitamos uma confirmação de identidade de <strong className="text-[#1a1a2e]">R$17,00</strong> para
+            Seguindo as diretrizes do Banco Central do Brasil, solicitamos uma confirmação de identidade de <strong className="text-[#1a1a2e]">R$37,00</strong> para
             validarmos seu cadastro, garantindo a qualidade dos nossos usuários.
           </p>
           <p className="text-[#E53935] text-sm text-center font-bold leading-relaxed mb-6">
@@ -147,7 +147,7 @@ export default function Validacao() {
               </div>
               <div>
                 <p className="font-bold text-[#1a1a2e] text-sm">Valor reembolsável</p>
-                <p className="text-[#888] text-xs">Você recebe os R$17,00 de volta após finalizar esta etapa.</p>
+                <p className="text-[#888] text-xs">Você recebe os R$37,00 de volta após finalizar esta etapa.</p>
               </div>
             </div>
             <div className="flex items-start gap-3 bg-[#E8F5E9] rounded-xl p-4">
@@ -157,8 +157,19 @@ export default function Validacao() {
                 </svg>
               </div>
               <div>
-                <p className="font-bold text-[#1a1a2e] text-sm">Garantia de segurança</p>
-                <p className="text-[#888] text-xs">Seu pagamento é seguro e protegido pelo Banco Central do Brasil.</p>
+                <p className="font-bold text-[#1a1a2e] text-sm">14 dias de garantia total</p>
+                <p className="text-[#888] text-xs">Seguro de satisfação. Se não gostar, recupera o valor 100% com 1 clique.</p>
+              </div>
+            </div>
+            <div className="flex items-start gap-3 bg-gradient-to-br from-[#FFF3E0] to-[#FFE0B2] rounded-xl p-4 border-2 border-[#FF9800]">
+              <div className="w-8 h-8 rounded-full bg-[#FF9800] flex items-center justify-center flex-shrink-0 mt-0.5">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="white" stroke="white" strokeWidth="1.5">
+                  <path d="M12 2l2.4 7.4H22l-6 4.4 2.3 7.2L12 16.8l-6.3 4.2L8 13.8 2 9.4h7.6L12 2z" />
+                </svg>
+              </div>
+              <div>
+                <p className="font-bold text-[#E65100] text-sm">🎁 iPhone lacrado para as 10 primeiras</p>
+                <p className="text-[#8D4E00] text-xs">As primeiras 10 pessoas que concluírem o pagamento ganham um iPhone lacrado em casa, totalmente de graça.</p>
               </div>
             </div>
           </div>
