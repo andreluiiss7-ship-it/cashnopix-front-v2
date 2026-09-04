@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 import VslPlayer from "../components/VslPlayer";
 import { playWinSound } from "../lib/sound";
 
@@ -83,8 +84,14 @@ export default function Validacao() {
         <VslPlayer libId={BUNNY_LIBRARY_ID} videoId={BUNNY_VIDEO_ID} />
         <div className="absolute bottom-3 left-3 flex items-end gap-2">
           <div className="relative w-20 h-20">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/images/misc/garantia-14-dias.png" alt="Garantia 14 dias" className="w-full h-full object-contain drop-shadow-lg" />
+            <Image
+              src="/images/misc/garantia-14-dias.png"
+              alt="Garantia 14 dias"
+              fill
+              sizes="80px"
+              priority
+              className="object-contain drop-shadow-lg"
+            />
           </div>
           <div className="bg-black/60 backdrop-blur-sm rounded-lg px-3 py-1.5 mb-1">
             <p className="text-white text-xs font-medium">para utilizar o Cash no Pix à vontade</p>
@@ -158,8 +165,7 @@ export default function Validacao() {
             {comments.map((c, i) => (
               <div key={i} className="flex gap-3">
                 <div className="relative w-9 h-9 rounded-full overflow-hidden flex-shrink-0 bg-gray-200">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={c.avatar} alt={c.name} className="w-full h-full object-cover" />
+                  <Image src={c.avatar} alt={c.name} fill sizes="36px" loading="lazy" className="object-cover" />
                 </div>
                 <div className="flex-1 min-w-0">
                   <div className="bg-[#f0f2f5] rounded-xl px-3 py-2.5">

@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function RatingCard({ product, onEvaluate }) {
   return (
     <div className="flex flex-col items-center gap-5 w-full max-w-md">
@@ -11,8 +13,13 @@ export default function RatingCard({ product, onEvaluate }) {
           <span className="bg-white text-xs font-bold px-3 py-1 rounded text-[#333]">{product.brand}</span>
         </div>
         <div className="relative w-full aspect-video bg-white/90 mt-8">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={product.image} alt={product.name} className="w-full h-full object-contain p-4" />
+          <Image
+            src={product.image}
+            alt={product.name}
+            fill
+            sizes="(max-width: 448px) 100vw, 448px"
+            className="object-contain p-4"
+          />
         </div>
       </div>
       <p className="text-[#666] text-sm">O que você achou do produto?</p>
