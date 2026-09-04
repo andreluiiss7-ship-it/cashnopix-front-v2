@@ -27,6 +27,11 @@ const faqs = [
     answer:
       '"Cash no pix" (com espaços) é a forma como muita gente busca e menciona o CashNoPix — o aplicativo de cashback via PIX disponível em cashnopix.net. Os dois termos se referem ao mesmo produto.',
   },
+  {
+    question: "O CashNoPix é confiável ou é golpe?",
+    answer:
+      "O CashNoPix é um aplicativo homologado que está no ar há 5 anos, com parceria de marcas como Apple, Adidas e Walmart. O aplicativo não fica com nenhuma parte do saldo que você acumula — o valor das avaliações é 100% seu e é pago via PIX.",
+  },
 ];
 
 export default function Faq() {
@@ -47,7 +52,13 @@ export default function Faq() {
                   isOpen ? "border-primary/40" : "border-transparent shadow-[var(--shadow-sm)]"
                 }`}
               >
-                <button onClick={() => toggle(i)} className="w-full flex items-center justify-between px-6 py-4 text-left">
+                <button
+                  onClick={() => toggle(i)}
+                  className="w-full flex items-center justify-between px-6 py-4 text-left"
+                  aria-expanded={isOpen}
+                  aria-controls={`faq-panel-${i}`}
+                  id={`faq-button-${i}`}
+                >
                   <span className="font-medium text-card-foreground text-sm md:text-base">{f.question}</span>
                   <svg
                     width="20"
@@ -58,16 +69,24 @@ export default function Faq() {
                     strokeWidth="2"
                     strokeLinecap="round"
                     strokeLinejoin="round"
-                    className={`text-primary flex-shrink-0 transition-transform duration-200 ${isOpen ? "rotate-180" : ""}`}
+                    aria-hidden="true"
+                    className={`text-[#0E7C3C] flex-shrink-0 transition-transform duration-200 ${isOpen ? "rotate-180" : ""}`}
                   >
                     <polyline points="6 9 12 15 18 9" />
                   </svg>
                 </button>
-                {isOpen && (
-                  <div className="px-6 pb-5">
-                    <p className="text-muted-foreground text-sm leading-relaxed">{f.answer}</p>
+                <div
+                  id={`faq-panel-${i}`}
+                  role="region"
+                  aria-labelledby={`faq-button-${i}`}
+                  className={`grid transition-[grid-template-rows] duration-300 ease-out ${isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"}`}
+                >
+                  <div className="overflow-hidden">
+                    <div className="px-6 pb-5">
+                      <p className="text-muted-foreground text-sm leading-relaxed">{f.answer}</p>
+                    </div>
                   </div>
-                )}
+                </div>
               </div>
             );
           })}

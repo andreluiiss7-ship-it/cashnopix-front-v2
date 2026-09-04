@@ -16,13 +16,13 @@ function LoadingScreen() {
       <div className="absolute inset-0 flex items-center justify-center">
         <div className="w-[400px] h-[400px] rounded-full bg-[radial-gradient(circle,rgba(0,200,83,0.15)_0%,transparent_70%)]" />
       </div>
-      <div className="absolute top-[10%] left-[8%] text-[#e0e0e0] text-2xl opacity-40 select-none">$</div>
-      <div className="absolute top-[15%] right-[12%] text-[#e0e0e0] text-xl opacity-30 select-none">$</div>
-      <div className="absolute bottom-[20%] left-[15%] text-[#e0e0e0] text-lg opacity-25 select-none">$</div>
-      <div className="absolute bottom-[12%] right-[8%] text-[#e0e0e0] text-2xl opacity-35 select-none">$</div>
-      <div className="absolute top-[40%] left-[3%] text-[#e0e0e0] text-sm opacity-20 select-none">$</div>
-      <div className="absolute top-[8%] left-[45%] text-[#e0e0e0] text-lg opacity-30 select-none">$</div>
-      <div className="absolute bottom-[8%] left-[40%] text-[#e0e0e0] text-xl opacity-25 select-none">$</div>
+      <div aria-hidden="true" className="absolute top-[10%] left-[8%] text-[#e0e0e0] text-2xl opacity-40 select-none">$</div>
+      <div aria-hidden="true" className="absolute top-[15%] right-[12%] text-[#e0e0e0] text-xl opacity-30 select-none">$</div>
+      <div aria-hidden="true" className="absolute bottom-[20%] left-[15%] text-[#e0e0e0] text-lg opacity-25 select-none">$</div>
+      <div aria-hidden="true" className="absolute bottom-[12%] right-[8%] text-[#e0e0e0] text-2xl opacity-35 select-none">$</div>
+      <div aria-hidden="true" className="absolute top-[40%] left-[3%] text-[#e0e0e0] text-sm opacity-20 select-none">$</div>
+      <div aria-hidden="true" className="absolute top-[8%] left-[45%] text-[#e0e0e0] text-lg opacity-30 select-none">$</div>
+      <div aria-hidden="true" className="absolute bottom-[8%] left-[40%] text-[#e0e0e0] text-xl opacity-25 select-none">$</div>
       <div className="relative z-10 flex flex-col items-center gap-6">
         <div className="w-16 h-16 rounded-full bg-[#00C853] flex items-center justify-center shadow-lg">
           <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -59,12 +59,12 @@ function ReadyScreen() {
           <div className="bg-[#E8F5E9] rounded-lg px-6 py-2 mb-5 w-full">
             <div className="flex items-center justify-start gap-2">
               <span className="w-2 h-2 rounded-full bg-[#00C853] inline-block" />
-              <span className="text-[#00C853] text-sm font-semibold">Você foi selecionado</span>
+              <span className="text-[#0E7C3C] text-sm font-semibold">Você foi selecionado</span>
             </div>
           </div>
           <h1 className="text-3xl font-bold text-[#1a1a2e] mb-3">Parabéns!</h1>
           <p className="text-[#888] text-sm leading-relaxed mb-8">
-            Uma licença com <span className="font-bold text-[#00C853]">R$ 50,00</span> de Bônus foi reservada para você por 5 minutos.
+            Uma licença com <span className="font-bold text-[#0E7C3C]">R$ 50,00</span> de Bônus foi reservada para você por 5 minutos.
           </p>
           <button
             onClick={() => {

@@ -118,11 +118,11 @@ function FinalCard({ balance, onRealizarSaque }) {
         </div>
         <h2 className="text-2xl font-bold text-[#1a1a2e]">Parabéns!</h2>
         <p className="text-[#888] text-sm">Você acumulou o saldo de</p>
-        <p className="text-4xl font-bold text-[#00C853] italic">{`R$ ${balance.toFixed(2).replace(".", ",")}`}</p>
+        <p className="text-4xl font-bold text-[#0E7C3C] italic">{`R$ ${balance.toFixed(2).replace(".", ",")}`}</p>
         <p className="text-[#888] text-sm">e já pode realizar seu primeiro saque.</p>
         <button
           onClick={onRealizarSaque}
-          className="w-full bg-[#2e7d32] hover:bg-[#256b28] text-white font-bold text-base py-4 rounded-xl transition-all cursor-pointer shadow-lg mt-2"
+          className="w-full bg-[#00C853] hover:bg-[#00b848] text-white font-bold text-base py-4 rounded-xl transition-all cursor-pointer shadow-lg mt-2"
         >
           Realizar Saque
         </button>
@@ -179,7 +179,7 @@ function ProcessingScreen() {
             />
           </svg>
           <div className="absolute inset-0 flex items-center justify-center">
-            <span className="text-3xl font-bold text-[#00C853]">{Math.round(pct)}%</span>
+            <span className="text-3xl font-bold text-[#0E7C3C]">{Math.round(pct)}%</span>
           </div>
         </div>
       </div>

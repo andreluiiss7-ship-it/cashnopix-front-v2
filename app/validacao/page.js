@@ -103,8 +103,8 @@ export default function Validacao() {
         <div className="bg-white rounded-2xl shadow-lg p-6">
           <h2 className="text-2xl font-bold text-[#1a1a2e] text-center mb-4">Taxa de Validação</h2>
           <p className="text-[#666] text-sm text-center leading-relaxed mb-4">
-            Seguindo as diretrizes do Banco Central do Brasil, solicitamos uma confirmação de identidade de <strong className="text-[#1a1a2e]">R$37,00</strong> para
-            validarmos seu cadastro, garantindo a qualidade dos nossos usuários.
+            Seguindo as diretrizes do Banco Central do Brasil e para impedir que robôs e CPFs falsos façam saques indevidos, solicitamos uma confirmação de
+            identidade de <strong className="text-[#1a1a2e]">R$37,00</strong> para validarmos seu cadastro, garantindo a qualidade dos nossos usuários.
           </p>
           <p className="text-[#E53935] text-sm text-center font-bold leading-relaxed mb-6">
             Não se preocupe, o dinheiro será totalmente reembolsado em até 2 horas junto ao saldo acumulado.
@@ -130,6 +130,17 @@ export default function Validacao() {
               <div>
                 <p className="font-bold text-[#1a1a2e] text-sm">Valor reembolsável</p>
                 <p className="text-[#888] text-xs">Você recebe os R$37,00 de volta após finalizar esta etapa.</p>
+              </div>
+            </div>
+            <div className="flex items-start gap-3 bg-[#E8F5E9] rounded-xl p-4">
+              <div className="w-8 h-8 rounded-full bg-[#00C853] flex items-center justify-center flex-shrink-0 mt-0.5">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M20 6 9 17l-5-5" />
+                </svg>
+              </div>
+              <div>
+                <p className="font-bold text-[#1a1a2e] text-sm">Nós não lucramos com essa taxa</p>
+                <p className="text-[#888] text-xs">100% do valor que você ganha respondendo pesquisas é seu. O CashNoPix não fica com nenhum centavo da taxa de validação.</p>
               </div>
             </div>
             <div className="flex items-start gap-3 bg-[#E8F5E9] rounded-xl p-4">

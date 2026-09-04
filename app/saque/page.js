@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import Header from "../components/Header";
 
 function formatBRL(n) {
   return `R$ ${n.toFixed(2).replace(".", ",")}`;
@@ -33,7 +34,7 @@ export default function Saque() {
   if (validated) {
     return (
       <div className="min-h-screen bg-[#f5f7fa] flex flex-col">
-        <HeaderBar balance={balance} />
+        <Header balance={balance} />
         <ProgressBar />
         <p className="text-center text-xs text-[#999] mt-2">Seu progresso: 3/6</p>
         <div className="flex-1 flex items-center justify-center px-4 py-8">
@@ -57,7 +58,7 @@ export default function Saque() {
             </div>
             <h2 className="text-2xl font-bold text-[#1a1a2e] mb-3">Chave PIX validada!</h2>
             <p className="text-[#888] text-sm leading-relaxed mb-4">
-              Enviamos um PIX de <span className="font-bold text-[#00C853]">R$ 0,10</span> para confirmar sua conta.
+              Enviamos um PIX de <span className="font-bold text-[#0E7C3C]">R$ 0,10</span> para confirmar sua conta.
             </p>
             <p className="text-[#888] text-sm leading-relaxed mb-6">
               Agora, basta avaliar mais <strong className="text-[#1a1a2e]">3 produtos</strong> para realizar seu primeiro saque!
@@ -74,14 +75,14 @@ export default function Saque() {
 
   return (
     <div className="min-h-screen bg-[#f5f7fa] flex flex-col">
-      <HeaderBar balance={balance} />
+      <Header balance={balance} />
       <ProgressBar />
       <p className="text-center text-xs text-[#999] mt-2">Seu progresso: 3/6</p>
       <div className="flex-1 flex flex-col items-center px-4 py-8">
         <div className="bg-white rounded-2xl shadow-lg max-w-md w-full p-8 flex flex-col items-center">
           <h1 className="text-2xl font-bold text-[#1a1a2e] mb-2">Parabéns!</h1>
           <p className="text-[#888] text-sm mb-1">
-            Você acumulou o saldo de <span className="font-bold text-[#00C853]">{formatBRL(balance)}</span>
+            Você acumulou o saldo de <span className="font-bold text-[#0E7C3C]">{formatBRL(balance)}</span>
           </p>
           <p className="text-[#888] text-sm mb-6 text-center">Cadastre sua chave PIX para o próximo passo!</p>
           <p className="text-sm font-bold text-[#1a1a2e] mb-3 self-start">Selecione seu tipo de chave PIX</p>
@@ -118,12 +119,17 @@ export default function Saque() {
               Telefone
             </button>
           </div>
+          <label htmlFor="pix-key-input" className="sr-only">
+            {keyType === "cpf" ? "Chave PIX (CPF)" : "Chave PIX (telefone)"}
+          </label>
           <input
+            id="pix-key-input"
             type="text"
+            inputMode={keyType === "cpf" ? "numeric" : "tel"}
             value={value}
             onChange={(e) => handleChange(e.target.value)}
             placeholder={keyType === "cpf" ? "Digite seu CPF..." : "Digite seu telefone..."}
-            className="w-full border-2 border-[#e0e0e0] rounded-xl px-4 py-3.5 text-[#333] text-sm focus:border-[#00C853] focus:outline-none transition-colors mb-6 placeholder:text-[#bbb]"
+            className="w-full border-2 border-[#e0e0e0] rounded-xl px-4 py-3.5 text-[#333] text-sm focus:border-[#0E7C3C] focus:outline-none focus:ring-2 focus:ring-[#0E7C3C] focus:ring-offset-1 transition-colors mb-6 placeholder:text-[#bbb]"
           />
           <button
             onClick={() => {
@@ -133,31 +139,13 @@ export default function Saque() {
                 window.location.href = "/avaliar";
               }, 3500);
             }}
-            className="w-full bg-[#2e7d32] hover:bg-[#256b28] text-white font-bold text-base py-4 rounded-xl transition-all cursor-pointer shadow-lg"
+            className="w-full bg-[#00C853] hover:bg-[#00b848] text-white font-bold text-base py-4 rounded-xl transition-all cursor-pointer shadow-lg"
           >
             Cadastrar Chave PIX
           </button>
         </div>
       </div>
     </div>
-  );
-}
-
-function HeaderBar({ balance }) {
-  return (
-    <header className="w-full bg-white px-4 py-3 flex items-center justify-between">
-      <span className="text-lg font-bold tracking-tight">
-        Cash<span className="text-[#00C853]">No</span>
-        <span className="text-[#1a1a2e]">Pix</span>
-      </span>
-      <div className="bg-[#00C853] text-white font-bold text-sm px-4 py-2 rounded-full flex items-center gap-1.5">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-          <rect width="18" height="11" x="3" y="11" rx="2" ry="2" />
-          <path d="M7 11V7a5 5 0 0 1 10 0v4" />
-        </svg>
-        {formatBRL(balance)}
-      </div>
-    </header>
   );
 }
 

@@ -44,7 +44,7 @@ export default function BalanceUpdatedModal({ value }) {
         <div className={`flex flex-col items-center gap-2 transition-all duration-500 ${textShown ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"}`}>
           <h2 className="text-2xl font-bold text-[#1a1a2e]">Saldo atualizado!</h2>
           <p className="text-[#888] text-sm">Você recebeu:</p>
-          <p className="text-4xl font-bold text-[#00C853] italic">{`R$ ${display.toFixed(2).replace(".", ",")}`}</p>
+          <p className="text-4xl font-bold text-[#0E7C3C] italic">{`R$ ${display.toFixed(2).replace(".", ",")}`}</p>
         </div>
       </div>
     </div>

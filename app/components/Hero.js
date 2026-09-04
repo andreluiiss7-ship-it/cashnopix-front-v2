@@ -7,21 +7,24 @@ export default function Hero() {
     <section className="w-full py-12 md:py-20 px-4">
       <div className="max-w-[700px] mx-auto flex flex-col items-center text-center gap-6">
         <div className="inline-flex items-center gap-2 bg-secondary rounded-full px-5 py-2">
-          <span className="text-primary text-sm">✓</span>
+          <span className="text-[#0E7C3C] text-sm" aria-hidden="true">✓</span>
           <span className="text-xs font-semibold tracking-widest text-secondary-foreground uppercase">APP OFICIAL AUTORIZADO</span>
         </div>
         <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground tracking-tight leading-tight">
-          Avalie Produtos e Ganhe <span className="text-primary">Cashback no PIX</span>
+          Avalie Produtos e Ganhe <span className="text-[#0E7C3C]">Cashback no PIX</span>
         </h1>
         <p className="text-muted-foreground text-base md:text-lg max-w-[600px] leading-relaxed">
           O CashNoPix é o aplicativo de cash no pix que conecta consumidores a marcas parceiras. Você avalia produtos, acumula saldo e saca direto via PIX — sem
           necessidade de instalar nada no celular.
         </p>
+        <p className="text-xs md:text-sm text-muted-foreground/80 -mt-2">
+          App homologado no ar há 5 anos, com parceria de marcas como Apple, Adidas e Walmart.
+        </p>
         <div className="border-2 border-primary/30 bg-secondary/50 rounded-2xl px-8 py-5 flex items-center gap-4">
           <span className="text-3xl">🎁</span>
           <div className="text-left">
-            <p className="text-xs font-bold tracking-widest text-primary uppercase">BÔNUS DE BOAS-VINDAS</p>
-            <p className="text-2xl font-bold text-primary">R$ 50,00</p>
+            <p className="text-xs font-bold tracking-widest text-[#0E7C3C] uppercase">BÔNUS DE BOAS-VINDAS</p>
+            <p className="text-2xl font-bold text-[#0E7C3C]">R$ 50,00</p>
             <p className="text-sm text-muted-foreground">para você começar hoje</p>
           </div>
         </div>

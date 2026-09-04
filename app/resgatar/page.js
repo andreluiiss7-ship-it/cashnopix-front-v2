@@ -137,7 +137,7 @@ function FinalCard({ balance }) {
         </div>
         <h2 className="text-2xl font-bold text-[#1a1a2e]">Parabéns!</h2>
         <p className="text-[#888] text-sm">Você acumulou o saldo de</p>
-        <p className="text-4xl font-bold text-[#00C853] italic">{`R$ ${balance.toFixed(2).replace(".", ",")}`}</p>
+        <p className="text-4xl font-bold text-[#0E7C3C] italic">{`R$ ${balance.toFixed(2).replace(".", ",")}`}</p>
         <p className="text-sm text-[#888] text-center leading-relaxed mt-2">
           Veja o vídeo de 2 minutos, com um passo a passo explicativo para você aprender cadastrar sua chave <strong className="text-[#1a1a2e]">PIX</strong> e
           realizar o seu primeiro saque!
@@ -146,7 +146,7 @@ function FinalCard({ balance }) {
           onClick={() => {
             window.location.href = "/video";
           }}
-          className="w-full bg-[#2e7d32] hover:bg-[#256b28] text-white font-bold text-base py-4 rounded-xl transition-all cursor-pointer flex items-center justify-center gap-2 mt-2"
+          className="w-full bg-[#00C853] hover:bg-[#00b848] text-white font-bold text-base py-4 rounded-xl transition-all cursor-pointer flex items-center justify-center gap-2 mt-2"
         >
           Assistir vídeo
           <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">

@@ -33,7 +33,7 @@ export default function RadarSearch({ searchText, couponFound }) {
       </div>
       {couponFound && (
         <div className="flex flex-col items-center gap-3">
-          <p className="text-[#00C853] font-semibold flex items-center gap-1.5">
+          <p className="text-[#0E7C3C] font-semibold flex items-center gap-1.5">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
               <path d="M20 6 9 17l-5-5" />
             </svg>

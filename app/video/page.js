@@ -34,6 +34,9 @@ export default function VideoPage() {
       <p className="text-center text-xs text-[#999] mt-2">Seu progresso: 3/6</p>
       <div className="flex-1 flex flex-col items-center px-4 py-6">
         <div className="w-full max-w-lg">
+          <p className="text-center text-[11px] text-[#999] mb-2">
+            App homologado, há 5 anos no ar, parceiro de Apple, Adidas e Walmart.
+          </p>
           <VslPlayer libId={BUNNY_LIBRARY_ID} videoId={BUNNY_VIDEO_ID} rounded />
         </div>
         {buttonReady ? (
